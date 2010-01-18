@@ -86,6 +86,7 @@
                         </mapping>
                         <mapping>
                             <directory>/etc</directory>
+                            <directoryIncluded>false</directoryIncluded>
                             <configuration>true</configuration>
                             <filemode>755</filemode>
                             <username>root</username>
