@@ -98,6 +98,10 @@
                             </sources>
                         </mapping>
                     </mappings>
+                    <preinstallScript>src/main/scripts/preinstall</preinstallScript>
+                    <postinstallScript>src/main/scripts/postinstall</postinstallScript>
+                    <postremoveScript>src/main/scripts/postuninstall</postremoveScript>
+                    <preremoveScript>src/main/scripts/preuninstall</preremoveScript>
                 </configuration>
             </plugin>
         </plugins>

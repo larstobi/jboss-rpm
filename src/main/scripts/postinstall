@@ -1,0 +1,9 @@
+# echo "rpm postinstall $1"
+
+fail() {
+    echo "ERROR: $1"
+    exit 1
+}   
+
+# Register nodemanager service
+/sbin/chkconfig --add jboss || fail "chkconfig failed to register jboss"

@@ -1,0 +1,9 @@
+#  echo "rpm preuninstall $1"
+
+# Normal uninstall
+if [ $1 = 0 ]; then
+
+	# Unregister services
+	/sbin/chkconfig --del nodemanager
+
+fi

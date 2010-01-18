@@ -1,0 +1,9 @@
+#  echo "rpm postuninstall $1"
+
+# Normal uninstall
+if [ "$1" == 0 ]; then
+	
+	# Remove remaining files
+	rm -rf /usr/local/jboss
+	
+fi
