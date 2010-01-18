@@ -1,0 +1,9 @@
+
+/usr/sbin/groupadd -g 499 jboss 2> /dev/null || :
+/usr/sbin/useradd -m -u 499 -c "JBoss user" jboss 2> /dev/null || :
+/usr/sbin/usermod -G jboss jboss 2> /dev/null || :
+
+if [ ! -d /var/run/jboss ]; then
+	mkdir /var/run/jboss
+    chown jboss:jboss /var/run/jboss
+else

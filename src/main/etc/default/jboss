@@ -1,8 +1,8 @@
 # Define where jboss is - this is the directory containing directories log, bin, conf etc
-#JBOSS_HOME=/usr/local/jboss/jboss-as
+JBOSS_HOME=/usr/local/jboss
 
 # Define the user under which jboss will run, or use 'RUNASIS' to run as the current user
-#JBOSS_USER=RUNASIS
+JBOSS_USER=jboss
 
 # Configuration to use, usually one of 'minimal', 'default', 'all'
 #JBOSS_CONF=default
@@ -29,7 +29,7 @@ JBOSS_ADMIN_PASS=admin
 #JAVA_OPTS="-Xms128m -Xmx512m -XX:MaxPermSize=256m -Dorg.jboss.resolver.warning=true -Dsun.rmi.dgc.client.gcInterval=3600000 "
 #JAVA_OPTS+=" -Dsun.rmi.dgc.server.gcInterval=3600000 -Dsun.lang.ClassLoader.allowArraySyntax=true -Djava.net.preferIPv4Stack=true -server "
 
-#JBOSS_PIDFILE=/var/run/jboss/jboss.pid
+JBOSS_PIDFILE=/var/run/jboss/jboss.pid
 
 #JBOSS_CONSOLE=/dev/null
 
