@@ -1,0 +1,18 @@
+# This file should be renamed to ~/.rpmmacros
+
+%packager               Ståle Tomten <staale.tomten@gmail.com>
+%distribution           JBoss
+%vendor                 Redhat
+
+%_signature             gpg
+%_gpg_name              Ståle Tomten <staale.tomten@gmail.com>
+%_topdir                /home/e2184/build
+%_tmppath               /home/e2184/rpmtmp
+
+%_builddir              %{_tmppath}/BUILD
+%_rpmtopdir             %{_topdir}/rpm/%{name}
+%_rpmdir                %{_topdir}/RPMS
+%_sourcedir             %{_rpmtopdir}
+%_specdir               %{_rpmtopdir}
+%_srcrpmdir             %{_rpmtopdir}
+
