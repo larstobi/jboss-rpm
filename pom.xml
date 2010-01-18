@@ -31,6 +31,16 @@
         </developer>
     </developers>
 
+    <scm>
+        <connection>scm:svn:http://jboss-rpm.googlecode.com/svn/trunk/</connection>
+        <developerConnection>scm:svn:https://jboss-rpm.googlecode.com/svn/trunk/</developerConnection>
+    </scm>
+
+    <issueManagement>
+        <system>GoogleCode</system>
+        <url>http://code.google.com/p/jboss-rpm/issues/list</url>
+    </issueManagement>
+
     <organization>
         <name>Conduct AS</name>
         <url>http://www.conduct.no/</url>
