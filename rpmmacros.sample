@@ -1,11 +1,11 @@
 # This file should be renamed to ~/.rpmmacros
 
-%packager               Ståle Tomten <staale.tomten@gmail.com>
+%packager               Your Name <your.name@gmail.com>
 %distribution           JBoss
 %vendor                 Redhat
 
 %_signature             gpg
-%_gpg_name              Ståle Tomten <staale.tomten@gmail.com>
+%_gpg_name              Your Name <your.name@gmail.com>
 %_topdir                /home/e2184/build
 %_tmppath               /home/e2184/rpmtmp
 
