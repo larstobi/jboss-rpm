@@ -98,10 +98,22 @@
                             </sources>
                         </mapping>
                     </mappings>
-                    <preinstallScript>src/main/scripts/preinstall</preinstallScript>
-                    <postinstallScript>src/main/scripts/postinstall</postinstallScript>
-                    <postremoveScript>src/main/scripts/postuninstall</postremoveScript>
-                    <preremoveScript>src/main/scripts/preuninstall</preremoveScript>
+                    <preinstallScriptlet>
+                        <scriptFile>src/main/scripts/preinstall</scriptFile>
+                        <fileEncoding>utf-8</fileEncoding>
+                    </preinstallScriptlet>
+                    <postinstallScriptlet>
+                        <scriptFile>src/main/scripts/postinstall</scriptFile>
+                        <fileEncoding>utf-8</fileEncoding>
+                    </postinstallScriptlet>
+                    <postremoveScriptlet>
+                        <scriptFile>src/main/scripts/postuninstall</scriptFile>
+                        <fileEncoding>utf-8</fileEncoding>
+                    </postremoveScriptlet>
+                    <preremoveScriptlet>
+                        <scriptFile>src/main/scripts/preuninstall</scriptFile>
+                        <fileEncoding>utf-8</fileEncoding>
+                    </preremoveScriptlet>
                 </configuration>
             </plugin>
         </plugins>
