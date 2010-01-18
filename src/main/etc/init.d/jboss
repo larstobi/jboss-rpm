@@ -43,7 +43,7 @@ fi
 JBOSS_CLASSPATH=${JBOSS_CLASSPATH:-"$JBOSS_HOME/bin/run.jar:$JAVA_HOME/lib/tools.jar"}
 JBOSS_SHUTDOWN_CLASSPATH=${JBOSS_SHUTDOWN_CLASSPATH:-"$JBOSS_HOME/bin/shutdown.jar:$JBOSS_HOME/client/jnet.jar"}
 
-JAVA_OPTS=${JAVA_OPTS:-"-Xms1303m -Xmx1303m -XX:MaxPermSize=512m -Dorg.jboss.resolver.warning=true -Dsun.rmi.dgc.client.gcInterval=3600000 \
+JAVA_OPTS=${JAVA_OPTS:-"-Xms128m -Xmx512m -XX:MaxPermSize=256m -Dorg.jboss.resolver.warning=true -Dsun.rmi.dgc.client.gcInterval=3600000 \
  -Dsun.rmi.dgc.server.gcInterval=3600000 -Dsun.lang.ClassLoader.allowArraySyntax=true -Djava.net.preferIPv4Stack=true -server"}
 
 JBOSS_ENDORSED_DIRS=${JBOSS_ENDORSED_DIRS:-"$JBOSS_HOME/lib/endorsed"}
