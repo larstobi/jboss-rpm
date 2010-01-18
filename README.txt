@@ -8,6 +8,6 @@ E.G: unzip <zipfile> -d src/main/
 Ensure that you have a .rpmmacros file in your $HOME directory.
 A sample of this file is provided in rpmmacros.sample.
 
-build with 'maven install'.
+build with 'mvn install'.
 
 The RPM file is located here after build: target/rpm/jboss-eap/RPMS/noarch/.
