@@ -50,9 +50,14 @@
 
 	<repositories>
 		<repository>
-			<id>central</id>
+			<id>codehaus</id>
 			<name>Codehaus Central repo</name>
 			<url>http://repository.codehaus.org</url>
+		</repository>
+		<repository>
+			<id>central</id>
+			<name>Maven Repository Switchboard</name>
+			<url>http://repo1.maven.org/maven2</url>
 		</repository>
 	</repositories>
 
@@ -60,22 +65,26 @@
 		<plugins>
 			<plugin>
 				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.3</version>
 				<executions>
 					<execution>
 						<phase>compile</phase>
 						<configuration>
-							<tasks unless="jboss.skip.download">
-								<get
-									src="http://ftp.redhat.com/pub/redhat/jbeap/5.0.0/en/source/jboss-eap-src-5.0.0.GA.zip"
-									dest="${basedir}/jboss-eap-src-5.0.0.GA.zip" verbose="true"
-									usetimestamp="true" />
-							</tasks>
-							<tasks unless="jboss.skip.unzip">
-								<unzip src="jboss-eap-src-5.0.0.GA.zip" dest="${basedir}/"
-									overwrite="false" />
-							</tasks>
-							<tasks unless="jboss.skip.build">
-								<ant antfile="build.xml" dir="${basedir}/jboss-eap-5.0-src/jboss-as/build" />
+							<tasks>
+								<taskdef name="if" classname="net.sf.antcontrib.logic.IfTask" />
+								<if><not><isset property="jboss.skip.download" /></not><then>
+									<get
+										src="http://ftp.redhat.com/pub/redhat/jbeap/5.0.0/en/source/jboss-eap-src-5.0.0.GA.zip"
+										dest="${basedir}/jboss-eap-src-5.0.0.GA.zip" verbose="true"
+										usetimestamp="true" />
+								</then></if>
+								<if><not><isset property="jboss.skip.unzip" /></not><then>
+									<unzip src="jboss-eap-src-5.0.0.GA.zip" dest="${basedir}/"
+										overwrite="false" />
+								</then></if>
+								<if><not><isset property="jboss.skip.build" /></not><then>
+									<ant antfile="build.xml" dir="${basedir}/jboss-eap-5.0-src/jboss-as/build" />
+								</then></if>
 							</tasks>
 						</configuration>
 						<goals>
@@ -83,6 +92,19 @@
 						</goals>
 					</execution>
 				</executions>
+				<dependencies>
+					<dependency>
+						<groupId>ant-contrib</groupId>
+						<artifactId>ant-contrib</artifactId>
+						<version>1.0b3</version>
+						<exclusions>
+							<exclusion>
+								<groupId>ant</groupId>
+								<artifactId>ant</artifactId>
+							</exclusion>
+						</exclusions>
+					</dependency>
+				</dependencies>
 			</plugin>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
