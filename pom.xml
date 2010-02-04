@@ -1,133 +1,163 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
-    <modelVersion>4.0.0</modelVersion>
-    <packaging>jar</packaging>
-    <artifactId>jboss-rpm</artifactId>
-    <groupId>no.conduct.rpm</groupId>
-    <version>2.0-SNAPSHOT</version>
-    <name>JBoss EAP 5.0.0 RPM</name>
-    <description />
+	<modelVersion>4.0.0</modelVersion>
+	<packaging>jar</packaging>
+	<artifactId>jboss-rpm</artifactId>
+	<groupId>no.conduct.rpm</groupId>
+	<version>2.0-SNAPSHOT</version>
+	<name>JBoss EAP 5.0.0 RPM</name>
+	<description />
 
-    <developers>
-        <developer>
-            <id>staale.tomten</id>
-            <name>Ståle Tomten</name>
-            <email>staale.tomten@gmail.com</email>
-            <organization>Conduct AS</organization>
-            <roles>
-                <role>Creator</role>
-                <role>Java Developer</role>
-            </roles>
-        </developer>
-        <developer>
-            <id>henrik.aronsen</id>
-            <name>Henrik Aronsen</name>
-            <email>henrik.aronsen@gmail.com</email>
-            <organization>Conduct AS</organization>
-            <roles>
-                <role>Creator</role>
-                <role>Java Developer</role>
-            </roles>
-        </developer>
-    </developers>
+	<developers>
+		<developer>
+			<id>staale.tomten</id>
+			<name>Ståle Tomten</name>
+			<email>staale.tomten@gmail.com</email>
+			<organization>Conduct AS</organization>
+			<roles>
+				<role>Creator</role>
+				<role>Java Developer</role>
+			</roles>
+		</developer>
+		<developer>
+			<id>henrik.aronsen</id>
+			<name>Henrik Aronsen</name>
+			<email>henrik.aronsen@gmail.com</email>
+			<organization>Conduct AS</organization>
+			<roles>
+				<role>Creator</role>
+				<role>Java Developer</role>
+			</roles>
+		</developer>
+	</developers>
 
-    <scm>
-        <connection>scm:svn:http://jboss-rpm.googlecode.com/svn/trunk/</connection>
-        <developerConnection>scm:svn:https://jboss-rpm.googlecode.com/svn/trunk/</developerConnection>
-    </scm>
+	<scm>
+		<connection>scm:svn:http://jboss-rpm.googlecode.com/svn/trunk/
+		</connection>
+		<developerConnection>scm:svn:https://jboss-rpm.googlecode.com/svn/trunk/
+		</developerConnection>
+	</scm>
 
-    <issueManagement>
-        <system>GoogleCode</system>
-        <url>http://code.google.com/p/jboss-rpm/issues/list</url>
-    </issueManagement>
+	<issueManagement>
+		<system>GoogleCode</system>
+		<url>http://code.google.com/p/jboss-rpm/issues/list</url>
+	</issueManagement>
 
-    <organization>
-        <name>Conduct AS</name>
-        <url>http://www.conduct.no/</url>
-    </organization>
+	<organization>
+		<name>Conduct AS</name>
+		<url>http://www.conduct.no/</url>
+	</organization>
 
-    <repositories>
-        <repository>
-            <id>central</id>
-            <name>Codehaus Central repo</name>
-            <url>http://repository.codehaus.org</url>
-        </repository>
-    </repositories>
+	<repositories>
+		<repository>
+			<id>central</id>
+			<name>Codehaus Central repo</name>
+			<url>http://repository.codehaus.org</url>
+		</repository>
+	</repositories>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>rpm-maven-plugin</artifactId>
-                <version>2.0-beta-4</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>rpm</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <name>jboss-eap</name>
-                    <version>5.0.0</version>
-                    <release>2</release>
-                    <copyright></copyright>
-                    <distribution>Conduct AS</distribution>
-                    <group>Application/System</group>
-                    <prefix>/</prefix>
-                    <defineStatements>
-                        <defineStatement>_unpackaged_files_terminate_build 0</defineStatement>
-                    </defineStatements>
-                    <provides>
-                        <provide>jboss</provide>
-                    </provides>
-                    <mappings>
-                        <mapping>
-                            <directory>/usr/local/jboss</directory>
-                            <configuration>false</configuration>
-                            <filemode>755</filemode>
-                            <username>root</username>
-                            <groupname>root</groupname>
-                            <sources>
-                                <source>
-                                    <location>src/main/jboss-eap-5.0/jboss-as</location>
-                                </source>
-                            </sources>
-                        </mapping>
-                        <mapping>
-                            <directory>/etc</directory>
-                            <directoryIncluded>false</directoryIncluded>
-                            <configuration>true</configuration>
-                            <filemode>755</filemode>
-                            <username>root</username>
-                            <groupname>root</groupname>
-                            <sources>
-                                <source>
-                                    <location>src/main/etc</location>
-                                </source>
-                            </sources>
-                        </mapping>
-                    </mappings>
-                    <preinstallScriptlet>
-                        <scriptFile>src/main/scripts/preinstall</scriptFile>
-                        <fileEncoding>utf-8</fileEncoding>
-                    </preinstallScriptlet>
-                    <postinstallScriptlet>
-                        <scriptFile>src/main/scripts/postinstall</scriptFile>
-                        <fileEncoding>utf-8</fileEncoding>
-                    </postinstallScriptlet>
-                    <postremoveScriptlet>
-                        <scriptFile>src/main/scripts/postuninstall</scriptFile>
-                        <fileEncoding>utf-8</fileEncoding>
-                    </postremoveScriptlet>
-                    <preremoveScriptlet>
-                        <scriptFile>src/main/scripts/preuninstall</scriptFile>
-                        <fileEncoding>utf-8</fileEncoding>
-                    </preremoveScriptlet>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
-    <dependencies>
-    </dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>compile</phase>
+						<configuration>
+							<tasks unless="jboss.skip.download">
+								<get
+									src="http://ftp.redhat.com/pub/redhat/jbeap/5.0.0/en/source/jboss-eap-src-5.0.0.GA.zip"
+									dest="${basedir}/jboss-eap-src-5.0.0.GA.zip" verbose="true"
+									usetimestamp="true" />
+							</tasks>
+							<tasks unless="jboss.skip.unzip">
+								<unzip src="jboss-eap-src-5.0.0.GA.zip" dest="${basedir}/"
+									overwrite="false" />
+							</tasks>
+							<tasks unless="jboss.skip.build">
+								<ant antfile="build.xml" dir="${basedir}/jboss-eap-5.0-src/jboss-as/build" />
+							</tasks>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>rpm-maven-plugin</artifactId>
+				<version>2.0-beta-4</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>rpm</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<name>jboss-eap</name>
+					<version>5.0.0</version>
+					<release>2</release>
+					<copyright></copyright>
+					<distribution>Conduct AS</distribution>
+					<group>Application/System</group>
+					<prefix>/</prefix>
+					<defineStatements>
+						<defineStatement>_unpackaged_files_terminate_build 0
+						</defineStatement>
+					</defineStatements>
+					<provides>
+						<provide>jboss</provide>
+					</provides>
+					<mappings>
+						<mapping>
+							<directory>/usr/local/jboss</directory>
+							<configuration>false</configuration>
+							<filemode>755</filemode>
+							<username>root</username>
+							<groupname>root</groupname>
+							<sources>
+								<source>
+									<location>${basedir}/jboss-eap-5.0-src/jboss-as</location>
+								</source>
+							</sources>
+						</mapping>
+						<mapping>
+							<directory>/etc</directory>
+							<directoryIncluded>false</directoryIncluded>
+							<configuration>true</configuration>
+							<filemode>755</filemode>
+							<username>root</username>
+							<groupname>root</groupname>
+							<sources>
+								<source>
+									<location>src/main/etc</location>
+								</source>
+							</sources>
+						</mapping>
+					</mappings>
+					<preinstallScriptlet>
+						<scriptFile>src/main/scripts/preinstall</scriptFile>
+						<fileEncoding>utf-8</fileEncoding>
+					</preinstallScriptlet>
+					<postinstallScriptlet>
+						<scriptFile>src/main/scripts/postinstall</scriptFile>
+						<fileEncoding>utf-8</fileEncoding>
+					</postinstallScriptlet>
+					<postremoveScriptlet>
+						<scriptFile>src/main/scripts/postuninstall</scriptFile>
+						<fileEncoding>utf-8</fileEncoding>
+					</postremoveScriptlet>
+					<preremoveScriptlet>
+						<scriptFile>src/main/scripts/preuninstall</scriptFile>
+						<fileEncoding>utf-8</fileEncoding>
+					</preremoveScriptlet>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<dependencies>
+	</dependencies>
 </project>
