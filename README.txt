@@ -2,7 +2,7 @@
 Build instructions
 ==================
 
-1) Download the jboss eap 5.0.0.GA zip file or build it from source [1].
+1) Download the jboss eap 5.0.0.GA binary [1] or build it from source [2].
 
 2) unzip the zipfile to src main, e.g.: unzip <zipfile> -d src/main/
 
@@ -12,6 +12,6 @@ Build instructions
 4) build with 'mvn install'.  The resulting RPM file is 
    located at target/rpm/jboss-eap/RPMS/noarch/.
 
-
-[1] http://anonsvn.jboss.org/repos/jbossas/tags/JBPAPP_5_0_0_GA/
+[1] https://support.redhat.com/jbossnetwork/restricted/listSoftware.html?product=appplatform
+[2] http://anonsvn.jboss.org/repos/jbossas/tags/JBPAPP_5_0_0_GA/
 
